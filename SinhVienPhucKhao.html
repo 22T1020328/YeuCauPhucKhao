@@ -53,7 +53,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-right: 1px solid #e9ecef;
             width: 220px;
-            height:1000px ;
+            height:1500px ;
             float: left;
             line-height: 50px;
         }
@@ -436,7 +436,7 @@
                 <li><a href="#" class="nav-link" data-page="history">📋 Lịch sử</a></li>
                 <li><a href="#" class="nav-link" data-page="stats">📊 Thống kê</a></li>
                 <li><a href="#" class="nav-link" data-page="help">💬 Trợ giúp</a></li>
-                <li><a href="#" class="nav-link" data-page="logout">🚪 Đăng Xuất</a></li>
+                <li><a href="DangNhap.html" class="nav-link" data-page="logout">🚪 Đăng Xuất</a></li>
             </ul>
         </div>
 
@@ -769,19 +769,19 @@
         let currentPage = 1;
         let historyData = [];
 
-        // Navigation system
+        // Navigation system - Lựa Chọn Trang
         function navigateToPage(pageId) {
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.style.display = 'none';
             });
 
-            // Remove active class from all nav links
+            // Remove active class from all nav links 
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
 
-            // Show selected page
+            // Show selected page 
             const targetPage = document.getElementById(pageId === 'new-request' ? 'newRequestPage' : pageId + 'Page');
             if (targetPage) {
                 targetPage.style.display = 'block';
@@ -805,7 +805,7 @@
             document.getElementById('pageTitle').textContent = titles[pageId] || titles['home'];
         }
 
-        // Initialize navigation
+        // Initialize navigation 
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -901,14 +901,14 @@
             setTimeout(() => {
                 alert(`✅ Đã nộp đơn phúc khảo thành công!
                 
-📚 Môn học: ${selectedSubjectData.subject}
-📊 Điểm hiện tại: ${selectedSubjectData.grade}
-🎯 Điểm mong muốn: ${expectedGrade}
-📂 Loại phúc khảo: ${reviewType}
-📞 Số điện thoại: ${phoneNumber}
-✉️ Email: ${email}
+            📚 Môn học: ${selectedSubjectData.subject}
+            📊 Điểm hiện tại: ${selectedSubjectData.grade}
+            🎯 Điểm mong muốn: ${expectedGrade}
+            📂 Loại phúc khảo: ${reviewType}
+            📞 Số điện thoại: ${phoneNumber}
+            ✉️ Email: ${email}
 
-Đơn của bạn sẽ được xử lý trong vòng 5-7 ngày làm việc. Chúng tôi sẽ thông báo kết quả qua email và SMS.`);
+            Đơn của bạn sẽ được xử lý trong vòng 5-7 ngày làm việc. Chúng tôi sẽ thông báo kết quả qua email và SMS.`);
                 
                 resetForm();
                 submitButton.textContent = originalText;
@@ -1097,7 +1097,9 @@
                 const page = link.getAttribute('data-page');
                 if (page === 'logout') {
                     if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+                        
                         alert('Đã đăng xuất!');
+                        window.location="DangNhap.html";
                     }
                 } else {
                     navigateToPage(page);

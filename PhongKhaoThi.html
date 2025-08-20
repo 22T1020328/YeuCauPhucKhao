@@ -1,536 +1,245 @@
-<!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hệ thống phúc khảo - All-in-One</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter','Quicksand', sans-serif; }
-    .nav-active { background: #4B54D2; opacity: 1 !important; }
-    .hidden-section { display: none; }
-  </style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>
+        Dashboard
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
 </head>
+
 <body class="bg-[#F8FAFF] min-h-screen flex">
-  <!-- Sidebar (one time) -->
-  <aside class="w-56 flex flex-col bg-gradient-to-b from-[#6B73FF] to-[#000DFF] text-white">
-    <div class="px-5 py-6 flex flex-col gap-1">
-      <div class="flex items-center gap-2">
-        <i class="fas fa-graduation-cap text-black text-xl"></i>
-        <h1 class="font-semibold text-lg">Phòng Khảo Thí</h1>
-      </div>
-      <p class="text-xs opacity-70">Hệ thống quản lý phúc khảo</p>
-    </div>
-    <nav id="sidebarNav" class="flex flex-col gap-1 px-3">
-      <a href="#home" data-section="home" class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition nav-active">
-        <i class="fas fa-chart-bar text-gray-200"></i> Trang chủ
-      </a>
-      <a href="#list" data-section="list" class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition">
-        <i class="fas fa-clipboard text-gray-200"></i> Danh sách yêu cầu
-      </a>
-      <a href="#process" data-section="process" class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition">
-        <i class="fas fa-tasks text-gray-200"></i> Xử lý yêu cầu
-      </a>
-      <a href="#summary" data-section="summary" class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition">
-        <i class="fas fa-users text-gray-200"></i> Tổng hợp điểm
-      </a>
-      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition">
-        <i class="fas fa-sign-out-alt text-gray-200"></i> Đăng xuất
-      </a>
-    </nav>
-  </aside>
-
-  <!-- Main container (shared header + switchable sections) -->
-  <main class="flex-1 flex flex-col">
-    <!-- Header (shared) -->
-    <header class="flex justify-between items-center px-6 py-4 bg-white border-b border-gray-200">
-      <h2 id="pageTitle" class="text-black font-Quicksand font-bold text-3xl leading-8">Trang chủ</h2>
-      <div class="flex items-center gap-2 bg-[#F3F4F6] rounded-md px-3 py-1 text-xs font-medium text-gray-700 select-none">
-        <i class="fas fa-user-circle text-black text-xl"></i> GV. Nguyễn Văn A
-      </div>
-    </header>
-
-    <!-- Switchable content wrapper -->
-    <section id="contentWrapper" class="p-6 space-y-6 overflow-auto flex-1">
-
-      <!-- ============ HOME ============ -->
-      <section id="section-home">
-        <div class="flex flex-wrap gap-4">
-          <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
-            <div class="flex justify-between items-center mb-2">
-              <p class="text-xs font-medium text-gray-600">Tổng yêu cầu</p>
-              <i class="fas fa-list text-blue-600"></i>
+    <!-- Sidebar -->
+    <aside class="w-56 flex flex-col bg-gradient-to-b from-[#667eea] to-[#764ba2]    text-white">
+        <div class="px-5 py-6 flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-graduation-cap text-white text-xl">
+                </i>
+                <h1 class="font-semibold text-lg">
+                    Phòng Khảo Thí
+                </h1>
             </div>
-            <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">45</p>
-            <p class="text-xs text-[#3B4A6B] mt-1">
-              <span class="text-green-600 font-semibold">↗ 12%</span> so với tháng trước
+            <p class="text-xs font-normal opacity-70">
+                Hệ thống quản lý phúc khảo
             </p>
-          </div>
-          <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
-            <div class="flex justify-between items-center mb-2">
-              <p class="text-xs font-medium text-gray-600">Đã xử lý</p>
-              <i class="fas fa-check-circle text-green-600"></i>
-            </div>
-            <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">35</p>
-            <p class="text-xs text-[#3B4A6B] mt-1">
-              <span class="text-green-600 font-semibold">↗ 8%</span> so với tháng trước
-            </p>
-          </div>
-          <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
-            <div class="flex justify-between items-center mb-2">
-              <p class="text-xs font-medium text-gray-600">Đang xử lý</p>
-              <i class="fas fa-spinner text-yellow-500"></i>
-            </div>
-            <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">8</p>
-            <p class="text-xs text-[#D1573C] mt-1">
-              <span class="text-[#D1573C] font-semibold">↘ 3%</span> so với tháng trước
-            </p>
-          </div>
-          <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
-            <div class="flex justify-between items-center mb-2">
-              <p class="text-xs font-medium text-gray-600">Chờ xử lý</p>
-              <i class="fas fa-clock text-blue-600"></i>
-            </div>
-            <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">2</p>
-            <p class="text-xs text-[#3B4A6B] mt-1">
-              <span class="text-green-600 font-semibold">↗ 12%</span> so với tháng trước
-            </p>
-          </div>
         </div>
-
-        <!-- Biểu đồ 1 -->
-        <section class="flex flex-col bg-white rounded-xl p-4 shadow-sm max-w-full overflow-hidden">
-          <div class="flex justify-between items-center mb-3">
-            <h3 class="text-sm font-medium text-gray-700 flex items-center gap-1">
-              <i class="fas fa-chart-bar"></i> Biểu đồ yêu cầu theo tháng
-            </h3>
-            <select class="border border-gray-300 rounded-md text-xs font-normal text-gray-700 px-2 py-1 focus:outline-none focus:ring-blue-500">
-              <option>Năm 2025</option><option>Năm 2024</option><option>Năm 2023</option>
-            </select>
-          </div>
-          <div class="h-40 bg-[#F8FAFF] rounded-md border border-gray-100 w-full flex flex-col justify-center space-y-2 px-2">
-            <div class="bg-green-400 h-6 w-[90%]"></div>
-            <div class="bg-red-400 h-6 w-[85%]"></div>
-            <div class="bg-purple-400 h-6 w-[95%]"></div>
-            <div class="bg-yellow-300 h-6 w-[90%]"></div>
-          </div>
-        </section>
-
-        <!-- Biểu đồ 2 -->
-        <section class="bg-white rounded-xl p-4 shadow-sm max-w-full overflow-hidden">
-          <div class="flex justify-between items-center mb-3">
-            <h3 class="text-sm font-medium text-gray-700 flex items-center gap-1">
-              <i class="fas fa-chart-line"></i> Biểu đồ yêu cầu theo môn học
-            </h3>
-            <select class="border border-gray-300 rounded-md text-xs font-normal text-gray-700 px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
-              <option>Môn học</option><option>Môn Toán</option><option>Môn Lý</option>
-            </select>
-          </div>
-          <div class="h-40 bg-[#F8FAFF] rounded-md border border-gray-100 w-full flex flex-col justify-center space-y-2 px-2">
-            <div class="bg-green-400 h-6 w-[90%]"></div>
-            <div class="bg-red-400 h-6 w-[85%]"></div>
-            <div class="bg-purple-400 h-6 w-[95%]"></div>
-            <div class="bg-yellow-300 h-6 w-[90%]"></div>
-          </div>
-        </section>
-
-        <!-- Tải xuống báo cáo -->
-        <section class="bg-white rounded-xl p-4 shadow-sm max-w-full overflow-hidden">
-          <div class="flex justify-between items-center mb-3">
-            <h3 class="text-sm font-medium text-gray-700 flex items-center gap-1">
-              <i class="fas fa-download"></i> Tải xuống báo cáo
-            </h3>
-          </div>
-          <div class="flex flex-wrap gap-4 items-center">
-            <button class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-Quicksand px-3 py-2 rounded">Báo cáo tháng</button>
-            <button class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-Quicksand px-3 py-2 rounded">Báo cáo học kỳ</button>
-            <button class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-Quicksand px-3 py-2 rounded">Báo cáo năm học</button>
-          </div>
-        </section>
-      </section>
-
-      <!-- ============ LIST REQUEST ============ -->
-      <section id="section-list" class="hidden-section">
-        <section class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4 font-quicksand">Quản lý yêu cầu phúc khảo</h3>
-          <div class="flex flex-wrap items-center gap-4 mb-6">
-            <div class="flex-1 min-w-[300px]">
-              <div class="relative">
-                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input type="text" placeholder="Tìm kiếm yêu cầu..." class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-              </div>
+        <nav class="flex flex-col gap-1 px-3">
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md bg-[#4B54D2] text-white text-sm font-medium"
+                href="#">
+                <i class="fas fa-chart-bar text-gray-200"></i>
+                Trang chủ
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition"
+                href="ListRequest.html">
+                <i class="fas fa-clipboard text-gray-200"></i>
+                Danh sách yêu cầu
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition"
+                href="ProcessRequest.html">
+                <i class="fas fa-tasks text-gray-200"></i>
+                Xử lý yêu cầu
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition"
+                href="SummaryOfPoint.html">
+                <i class="fas fa-users text-gray-200"></i>
+                Tổng hợp điểm
+            </a>
+            <a class="flex items-center gap-3 px-4 py-2 rounded-md text-white text-sm font-medium opacity-80 hover:opacity-100 transition"
+                href="DangNhap.html">
+                <i class="fas fa-sign-out-alt text-gray-200"></i>
+                Đăng xuất
+            </a>
+        </nav>
+    </aside>
+    <!-- Main content -->
+    <main class="flex-1 flex flex-col">
+        <!-- Header -->
+        <header class="flex justify-between items-center px-6 py-4 bg-white border-b border-gray-200">
+            <h2 class="text-black-100 font-Quicksand font-bold text-3xl">
+                Trang chủ
+            </h2>
+            <div
+                class="flex items-center gap-2 bg-[#F3F4F6] rounded-md px-3 py-1 text-xs font-medium text-gray-700 select-none">
+                <i class="fas fa-user-circle text-black text-xl"></i>
+                GV. Nguyễn Văn A
             </div>
-            <select class="border border-gray-300 rounded-lg text-sm text-gray-700 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[150px]">
-              <option value="">Tất cả trạng thái</option>
-              <option value="pending">Chờ xử lí</option>
-              <option value="processing">Chờ GV chấm</option>
-              <option value="approved">Đã duyệt</option>
-              <option value="rejected">Từ chối</option>
-            </select>
-            <select class="border border-gray-300 rounded-lg text-sm text-gray-700 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[150px]">
-              <option value="">Tất cả môn học</option>
-              <option value="math">Toán học</option>
-              <option value="literature">Văn học</option>
-              <option value="physics">Vật lý</option>
-              <option value="chemistry">Hóa học</option>
-            </select>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-2">
-              <i class="fas fa-filter"></i> Lọc
-            </button>
-          </div>
+        </header>
+        <!-- Nội dung trang chủ -->
+        <section class="p-6 space-y-6 overflow-auto">
 
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-            <div class="px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 border-b">
-              <div class="flex justify-between">
-                <h2 class="text-lg font-semibold text-white font-quicksand">Danh Sách Yêu Cầu Phúc Khảo</h2>
-                <div class="bg-white/20 px-3 py-1 rounded-full text-white text-sm">
-                  <i class="fas fa-clipboard-list mr-1"></i> Tổng: 4 yêu cầu
+            <div class="flex flex-wrap gap-4">
+                <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="text-xs font-medium text-gray-600">
+                            Tổng yêu cầu
+                        </p>
+                        <i class="fas fa-list text-blue-600"></i>
+                    </div>
+                    <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">
+                        45
+                    </p>
+                    <p class="text-xs font-normal text-[#3B4A6B] mt-1">
+                        <span class="text-green-600 font-semibold">
+                            ↗ 12%
+                        </span>
+                        so với tháng trước
+                    </p>
                 </div>
-              </div>
-            </div>
+                <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="text-xs font-medium text-gray-600">
+                            Đã xử lý
+                        </p>
+                        <i class="fas fa-check-circle text-green-600"></i>
+                    </div>
+                    <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">
+                        35
+                    </p>
+                    <p class="text-xs font-normal text-[#3B4A6B] mt-1">
+                        <span class="text-green-600 font-semibold">
+                            ↗ 8%
+                        </span>
+                        so với tháng trước
 
-            <div class="overflow-x-auto">
-              <table class="w-full">
-                <thead class="bg-gray-50 border-b border-gray-200">
-                  <tr>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><div class="flex items-center space-x-2"><span>Mã yêu cầu</span><i class="fas fa-sort text-gray-400"></i></div></th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><div class="flex items-center space-x-2"><span>Môn học</span><i class="fas fa-sort text-gray-400"></i></div></th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><div class="flex items-center space-x-2"><span>Sinh viên</span><i class="fas fa-sort text-gray-400"></i></div></th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><div class="flex items-center space-x-2"><span>Ngày nộp</span><i class="fas fa-sort text-gray-400"></i></div></th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><div class="flex items-center space-x-2"><span>Trạng thái</span><i class="fas fa-sort text-gray-400"></i></div></th>
-                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><div class="flex items-center space-x-2"><span>Thao tác</span></div></th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <!-- 4 sample rows (copied from your ListRequest.html) -->
-                  <tr class="hover-row">
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-2 h-8 bg-blue-500 rounded-l mr-3"></div><span class="text-sm font-medium text-gray-900">PK01</span></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-calculator text-purple-600"></i></div><div><div class="text-sm font-medium text-gray-900">Giải Tích</div><div class="text-xs text-gray-500">Toán học cơ bản</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-3"><span class="text-white text-xs font-semibold">LV</span></div><div><div class="text-sm font-medium text-gray-900">Lê Văn A</div><div class="text-xs text-gray-500">MSSV: 2021001</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><i class="fas fa-calendar-alt text-gray-400 mr-2"></i><div><div class="text-sm text-gray-900">15/03/2025</div><div class="text-xs text-gray-500">09:30 AM</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium"><i class="fas fa-clock mr-1"></i>Chờ xử lí</span></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center space-x-2"><button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center"><i class="fas fa-eye mr-1"></i>Xem</button><button class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-1.5 rounded-lg transition-colors duration-200"><i class="fas fa-ellipsis-v text-xs"></i></button></div></td>
-                  </tr>
-                  <tr class="hover-row">
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-2 h-8 bg-orange-500 rounded-l mr-3"></div><span class="text-sm font-medium text-gray-900">PK02</span></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-200 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-code text-orange-600"></i></div><div><div class="text-sm font-medium text-gray-900">Kỹ thuật lập trình</div><div class="text-xs text-gray-500">Lập trình cơ bản</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mr-3"><span class="text-white text-xs font-semibold">LV</span></div><div><div class="text-sm font-medium text-gray-900">Lê Văn B</div><div class="text-xs text-gray-500">MSSV: 2021002</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><i class="fas fa-calendar-alt text-gray-400 mr-2"></i><div><div class="text-sm text-gray-900">16/03/2025</div><div class="text-xs text-gray-500">10:15 AM</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium"><i class="fas fa-spinner mr-1"></i>Chờ GV chấm</span></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center space-x-2"><button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center"><i class="fas fa-eye mr-1"></i>Xem</button><button class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-1.5 rounded-lg transition-colors duration-200"><i class="fas fa-ellipsis-v text-xs"></i></button></div></td>
-                  </tr>
-                  <tr class="hover-row">
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-2 h-8 bg-green-500 rounded-l mr-3"></div><span class="text-sm font-medium text-gray-900">PK03</span></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-layer-group text-green-600"></i></div><div><div class="text-sm font-medium text-gray-900">OOP</div><div class="text-xs text-gray-500">Lập trình hướng đối tượng</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mr-3"><span class="text-white text-xs font-semibold">LV</span></div><div><div class="text-sm font-medium text-gray-900">Lê Văn C</div><div class="text-xs text-gray-500">MSSV: 2021003</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><i class="fas fa-calendar-alt text-gray-400 mr-2"></i><div><div class="text-sm text-gray-900">15/03/2025</div><div class="text-xs text-gray-500">14:20 PM</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium"><i class="fas fa-check mr-1"></i>Đã duyệt</span></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center space-x-2"><button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center"><i class="fas fa-eye mr-1"></i>Xem</button><button class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-1.5 rounded-lg transition-colors duration-200"><i class="fas fa-ellipsis-v text-xs"></i></button></div></td>
-                  </tr>
-                  <tr class="hover-row">
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-2 h-8 bg-red-500 rounded-l mr-3"></div><span class="text-sm font-medium text-gray-900">PK04</span></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-10 h-10 bg-gradient-to-br from-red-100 to-red-200 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-calculator text-red-600"></i></div><div><div class="text-sm font-medium text-gray-900">Toán rời rạc</div><div class="text-xs text-gray-500">Toán học nâng cao</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><div class="w-8 h-8 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mr-3"><span class="text-white text-xs font-semibold">LV</span></div><div><div class="text-sm font-medium text-gray-900">Lê Văn Bưởi</div><div class="text-xs text-gray-500">MSSV: 2021004</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center"><i class="fas fa-calendar-alt text-gray-400 mr-2"></i><div><div class="text-sm text-gray-900">12/03/2025</div><div class="text-xs text-gray-500">08:45 AM</div></div></div></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium"><i class="fas fa-times mr-1"></i>Từ chối</span></td>
-                    <td class="px-6 py-4 whitespace-nowrap"><div class="flex items-center space-x-2"><button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center"><i class="fas fa-eye mr-1"></i>Xem</button><button class="bg-gray-100 hover:bg-gray-200 text-gray-700 p-1.5 rounded-lg transition-colors duration-200"><i class="fas fa-ellipsis-v text-xs"></i></button></div></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="px-6 py-4 bg-gray-50 border-t border-gray-200">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center text-sm text-gray-500">
-                  <i class="fas fa-info-circle mr-2"></i> Hiển thị 1-4 trong tổng số 4 kết quả
+                    </p>
                 </div>
-                <div class="flex items-center space-x-2">
-                  <button class="flex items-center px-3 py-2 text-sm text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200" disabled>
-                    <i class="fas fa-chevron-left mr-1"></i> Quay lại
-                  </button>
-                  <div class="flex items-center space-x-1">
-                    <button class="w-8 h-8 text-sm font-medium text-white bg-blue-600 rounded-lg">1</button>
-                    <button class="w-8 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">2</button>
-                    <button class="w-8 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">3</button>
-                    <span class="px-2 text-gray-500">...</span>
-                  </div>
-                  <button class="flex items-center px-3 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                    Tiếp theo <i class="fas fa-chevron-right ml-1"></i>
-                  </button>
+                <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="text-xs font-medium text-gray-600">
+                            Đang xử lý
+                        </p>
+                        <i class="fas fa-spinner text-yellow-500"></i>
+                    </div>
+                    <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">
+                        8
+                    </p>
+                    <p class="text-xs font-normal text-[#D1573C] mt-1">
+                        <span class="text-[#D1573C] font-semibold">
+                            ↘ 3%
+                        </span>
+                        so với tháng trước
+
+                    </p>
                 </div>
-              </div>
+                <div class="flex-1 min-w-[160px] max-w-xs bg-white rounded-xl p-4 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <p class="text-xs font-medium text-gray-600">
+                            Chờ xử lý
+                        </p>
+                        <i class="fas fa-clock text-blue-600"></i>
+                    </div>
+                    <p class="text-2xl font-semibold text-[#3B4A6B] leading-8">
+                        2
+                    </p>
+                    <p class="text-xs font-normal text-[#3B4A6B] mt-1">
+                        <span class="text-green-600 font-semibold">
+                            ↗ 12%
+                        </span>
+                        so với tháng trước
+                    </p>
+                </div>
             </div>
-          </div>
+            <!-- Chart 1 container -->
+            <section class="flex flex-col bg-white rounded-xl p-4 shadow-sm max-w-full overflow-hidden">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm font-medium text-gray-700 flex items-center gap-1">
+                        <img alt="Icon of bar chart" class="w-4 h-4" height="16"
+                            src="https://storage.googleapis.com/a1aa/image/513dd24a-53dd-40fd-1eeb-d59342f1c4b9.jpg"
+                            width="16" />
+                        Biểu đồ yêu cầu theo tháng
+                    </h3>
+                    <select
+                        class="border border-gray-300 rounded-md text-xs font-normal text-gray-700 px-2 py-1 focus:outline-none focus:ring-blue-500">
+                        <option>
+                            Năm 2025
+                        </option>
+                        <option>
+                            Năm 2024
+                        </option>
+                        <option>
+                            Năm 2023
+                        </option>
+                    </select>
+
+                </div>
+                <div
+                    class="h-40 bg-[#F8FAFF] rounded-md border border-gray-100 w-full flex flex-col justify-center space-y-2 px-2">
+                    <div class="bg-green-400 h-6 w-[90%]">
+                    </div>
+                    <div class="bg-red-400 h-6 w-[85%]">
+                    </div>
+                    <div class="bg-purple-400 h-6 w-[95%]">
+                    </div>
+                    <div class="bg-yellow-300 h-6 w-[90%]">
+                    </div>
+                </div>
+            </section>
+            <!-- Chart 2 container -->
+            <section class="bg-white rounded-xl p-4 shadow-sm max-w-full overflow-hidden">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm font-medium text-gray-700 flex items-center gap-1">
+                        <img alt="Icon of line chart" class="w-4 h-4" height="16"
+                            src="https://storage.googleapis.com/a1aa/image/5c709c5d-1360-467f-fa98-235b566e7ebc.jpg"
+                            width="16" />
+                        Biểu đồ yêu cầu theo môn học
+                    </h3>
+                    <select
+                        class="border border-gray-300 rounded-md text-xs font-normal text-gray-700 px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                        <option>
+                            Môn học
+                        </option>
+                        <option>
+                            Môn Toán
+                        </option>
+                        <option>
+                            Môn Lý
+                        </option>
+                    </select>
+                </div>
+                <div
+                    class="h-40 bg-[#F8FAFF] rounded-md border border-gray-100 w-full flex flex-col justify-center space-y-2 px-2">
+                    <div class="bg-green-400 h-6 w-[90%]">
+                    </div>
+                    <div class="bg-red-400 h-6 w-[85%]">
+                    </div>
+                    <div class="bg-purple-400 h-6 w-[95%]">
+                    </div>
+                    <div class="bg-yellow-300 h-6 w-[90%]">
+                    </div>
+                </div>
+            </section>
+            <section class="bg-white rounded-xl p-4 shadow-sm max-w-full overflow-hidden">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm font-medium text-gray-700 flex items-center gap-1">
+                        <i class="fas fa-download"></i>
+                        Tải xuống báo cáo
+                    </h3>
+                </div>
+                <div class="flex space-x-20 items-center justify-center">
+                    <button class="bg-blue-500 hover:bg-gradient-to-br from-blue-500 to-blue-600 text-white text-xl font-Quicksand px-3 py-1 rounded" type="button">
+                        Báo cáo tháng
+                    </button>
+                    <button class="bg-blue-500 hover:bg-gradient-to-br from-blue-500 to-blue-600 text-white text-xl font-Quicksand px-3 py-1 rounded" type="button">
+                        Báo cáo học kỳ
+                    </button>
+                    <button class="bg-blue-500 hover:bg-gradient-to-br from-blue-500 to-blue-600 text-white text-xl font-Quicksand px-3 py-1 rounded" type="button">
+                        Báo cáo năm học
+                    </button>
+                </div>
+            </section>
         </section>
-      </section>
-
-      <!-- ============ PROCESS REQUEST ============ -->
-      <section id="section-process" class="hidden-section">
-        <div class="w-full md:w-1/2 min-w-[300px]">
-          <div class="relative">
-            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-            <input type="text" placeholder="Tìm kiếm yêu cầu chờ xử lí..." class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-          </div>
-        </div>
-
-        <!-- Card 1 -->
-        <div class="mt-6 bg-white p-6 rounded-lg shadow-md border border-gray-200">
-          <div class="flex justify-between items-start">
-            <div>
-              <h2 class="text-xl font-semibold text-gray-800">Yêu cầu #PK01</h2>
-              <p class="text-sm text-gray-500 mt-1">Nguyễn Văn A (22T1020)</p>
-              <p class="text-sm text-gray-500 mt-1">Môn học: Toán</p>
-              <p class="text-sm text-gray-500 mt-1">Ngày yêu cầu: 01/08/2025</p>
-              <p class="text-sm text-gray-600 mt-3">Nội dung: Phúc khảo câu 3 vì em thấy điểm chưa đúng.</p>
-            </div>
-            <div><span class="bg-yellow-100 text-yellow-700 text-xs px-3 py-1 rounded-full">Chờ xử lý</span></div>
-          </div>
-          <div class="mt-4 grid md:grid-cols-3 gap-4">
-            <input type="text" placeholder="Nhập phản hồi..." class="w-full px-4 py-2 border border-gray-300 rounded-md text-sm" />
-            <select class="w-full px-4 py-2 border border-gray-300 rounded-md text-sm text-gray-700">
-              <option>-- Chọn giáo viên --</option>
-              <option>GV. Trần Thị B</option>
-              <option>GV. Lê Văn C</option>
-            </select>
-            <div class="flex space-x-2 justify-end">
-              <button class="bg-green-500 text-white text-sm px-4 py-2 rounded hover:bg-green-600">Duyệt</button>
-              <button class="bg-red-500 text-white text-sm px-4 py-2 rounded hover:bg-red-600">Từ chối</button>
-              <button class="border border-gray-500 text-gray-700 text-sm px-4 py-2 rounded hover:bg-gray-100">Hủy</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 (duplicate from your file) -->
-        <div class="mt-6 bg-white p-6 rounded-lg shadow-md border border-gray-200">
-          <div class="flex justify-between items-start">
-            <div>
-              <h2 class="text-xl font-semibold text-gray-800">Yêu cầu #PK01</h2>
-              <p class="text-sm text-gray-500 mt-1">Nguyễn Văn A (22T1020)</p>
-              <p class="text-sm text-gray-500 mt-1">Môn học: Toán</p>
-              <p class="text-sm text-gray-500 mt-1">Ngày yêu cầu: 01/08/2025</p>
-              <p class="text-sm text-gray-600 mt-3">Nội dung: Phúc khảo câu 3 vì em thấy điểm chưa đúng.</p>
-            </div>
-            <div><span class="bg-yellow-100 text-yellow-700 text-xs px-3 py-1 rounded-full">Chờ xử lý</span></div>
-          </div>
-          <div class="mt-4 grid md:grid-cols-3 gap-4">
-            <input type="text" placeholder="Nhập phản hồi..." class="w-full px-4 py-2 border border-gray-300 rounded-md text-sm" />
-            <select class="w-full px-4 py-2 border border-gray-300 rounded-md text-sm text-gray-700">
-              <option>-- Chọn giáo viên --</option>
-              <option>GV. Trần Thị B</option>
-              <option>GV. Lê Văn C</option>
-            </select>
-            <div class="flex space-x-2 justify-end">
-              <button class="bg-green-500 text-white text-sm px-4 py-2 rounded hover:bg-green-600">Duyệt</button>
-              <button class="bg-red-500 text-white text-sm px-4 py-2 rounded hover:bg-red-600">Từ chối</button>
-              <button class="border border-gray-500 text-gray-700 text-sm px-4 py-2 rounded hover:bg-gray-100">Hủy</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ SUMMARY OF POINTS ============ -->
-      <section id="section-summary" class="hidden-section">
-        <section class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-          <div class="flex flex-wrap items-center gap-4 mb-6">
-            <div class="flex-1 min-w-[300px]">
-              <div class="relative">
-                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input type="text" placeholder="Tìm kiếm yêu cầu..." class="w-full pl-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              </div>
-            </div>
-            <select class="border border-gray-300 rounded-lg text-gray-700 font-normal focus:outline-none px-4 py-2.5 focus:ring-2 focus:ring-blue-500 min-w-[150px]">
-              <option value="">Tất cả trạng thái</option>
-              <option value="new">Mới nhận</option>
-              <option value="processed">Đã xử lý</option>
-              <option value="sent">Đã gửi PDT</option>
-            </select>
-            <button class="bg-blue-600 hover:bg-blue-700 rounded-lg px-4 py-2.5 text-white font-medium transition-colors duration-200 flex items-center gap-2">
-              <i class="fas fa-filter"></i> Lọc
-            </button>
-            <button class="bg-yellow-500 hover:bg-yellow-600 rounded-lg px-4 py-2.5 text-white font-medium transition-colors duration-200 flex items-center gap-2">
-              <i class="fas fa-paper-plane"></i> Gửi PDT
-            </button>
-            <button class="bg-green-600 hover:bg-green-700 rounded-lg text-white px-4 py-2.5 font-medium transition-colors duration-200 flex items-center gap-2">
-              <i class="fas fa-download"></i> Xuất Excel
-            </button>
-            <button class="bg-blue-500 hover:bg-blue-600 rounded-lg text-white px-4 py-2.5 font-medium transition-colors duration-200 flex items-center gap-2">
-              <i class="fas fa-sync-alt"></i> Làm mới
-            </button>
-          </div>
-
-          <div class="max-h-[600px] overflow-y-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-            <table class="w-full">
-              <thead class="sticky top-0 bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><span>Chọn</span></th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><span>Môn học</span> <i class="fas fa-sort text-gray-400"></i></th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><span>Giảng viên</span> <i class="fas fa-sort text-gray-400"></i></th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><span>Số sinh viên</span> <i class="fas fa-sort text-gray-400"></i></th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><span>Ngày nhận</span> <i class="fas fa-sort text-gray-400"></i></th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><span>Trạng thái</span> <i class="fas fa-sort text-gray-400"></i></th>
-                  <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><span>Thao tác</span> <i class="fas fa-sort text-gray-400"></i></th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600"></td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mr-2">
-                        <i class="fas fa-calculator text-purple-600"></i>
-                      </div>
-                      <div>
-                        <div class="text-sm font-medium text-gray-900">Giải Tích</div>
-                        <div class="text-xs text-gray-500">Toán học cơ bản</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-2">
-                        <span class="text-white text-xs font-semibold">NV</span>
-                      </div>
-                      <div>
-                        <div class="text-sm font-medium text-gray-900">GV.Nguyễn Văn A</div>
-                        <div class="text-xs text-gray-500">MGV:123456</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">45</div></td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <i class="fas fa-calendar-alt text-gray-400 mr-2"></i>
-                      <div>
-                        <div class="text-sm text-gray-900">15/03/2025</div>
-                        <div class="text-xs text-gray-500">09:30 AM</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap"><div class="text-blue-600 font-medium">Mới nhận</div></td>
-                  <td class="px-6 py-4 whitespace-nowrap"><button class="bg-blue-500 hover:bg-blue-600 rounded-lg text-white px-2 py-1.5 font-medium">Tổng hợp</button></td>
-                </tr>
-
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600"></td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mr-2">
-                        <i class="fas fa-calculator text-purple-600"></i>
-                      </div>
-                      <div>
-                        <div class="text-sm font-medium text-gray-900">Giải Tích</div>
-                        <div class="text-xs text-gray-500">Toán học cơ bản</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-2">
-                        <span class="text-white text-xs font-semibold">NV</span>
-                      </div>
-                      <div>
-                        <div class="text-sm font-medium text-gray-900">GV.Nguyễn Văn A</div>
-                        <div class="text-xs text-gray-500">MGV:123456</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">45</div></td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <i class="fas fa-calendar-alt text-gray-400 mr-2"></i>
-                      <div>
-                        <div class="text-sm text-gray-900">15/03/2025</div>
-                        <div class="text-xs text-gray-500">09:30 AM</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap"><div class="text-green-600 font-medium">Đã xử lí</div></td>
-                  <td class="px-6 py-4 whitespace-nowrap"><button class="bg-green-500 hover:bg-green-600 rounded-lg text-white px-3 py-1.5 font-medium">Chọn gửi</button></td>
-                </tr>
-
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600"></td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mr-2">
-                        <i class="fas fa-calculator text-purple-600"></i>
-                      </div>
-                      <div>
-                        <div class="text-sm font-medium text-gray-900">Giải Tích</div>
-                        <div class="text-xs text-gray-500">Toán học cơ bản</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-2">
-                        <span class="text-white text-xs font-semibold">NV</span>
-                      </div>
-                      <div>
-                        <div class="text-sm font-medium text-gray-900">GV.Nguyễn Văn A</div>
-                        <div class="text-xs text-gray-500">MGV:123456</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">45</div></td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <i class="fas fa-calendar-alt text-gray-400 mr-2"></i>
-                      <div>
-                        <div class="text-sm text-gray-900">15/03/2025</div>
-                        <div class="text-xs text-gray-500">09:30 AM</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap"><div class="text-yellow-600 font-medium">Đã gửi PDT</div></td>
-                  <td class="px-6 py-4 whitespace-nowrap"><button class="bg-gray-500 hover:bg-gray-600 rounded-lg text-white px-5 py-1.5 font-medium">Đã gửi</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </section>
-
-    </section>
-  </main>
-
-  <script>
-    // Handle navigation and section switching
-    const mapTitle = {
-      home: 'Trang chủ',
-      list: 'Danh sách yêu cầu',
-      process: 'Xử lý yêu cầu phúc khảo',
-      summary: 'Tổng hợp điểm',
-    };
-
-    function showSection(key) {
-      document.querySelectorAll('[id^="section-"]').forEach(s => s.classList.add('hidden-section'));
-      const el = document.getElementById('section-' + key);
-      if (el) el.classList.remove('hidden-section');
-      document.getElementById('pageTitle').textContent = mapTitle[key] || 'Trang chủ';
-
-      // active nav style
-      document.querySelectorAll('#sidebarNav a[data-section]').forEach(a => a.classList.remove('nav-active'));
-      const active = document.querySelector('#sidebarNav a[data-section="' + key + '"]');
-      if (active) active.classList.add('nav-active');
-    }
-
-    // click listeners
-    document.querySelectorAll('#sidebarNav a[data-section]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        // allow #hash for deep-link but prevent jump
-        e.preventDefault();
-        const key = a.getAttribute('data-section');
-        history.replaceState(null, '', '#' + key);
-        showSection(key);
-      });
-    });
-
-    // Load initial based on hash
-    const initial = (location.hash || '#home').replace('#','');
-    showSection(initial);
-  </script>
+    </main>
 </body>
+
 </html>
